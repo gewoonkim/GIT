@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+	<link rel="stylesheet" href="dataset.css">
+</head>
+<body>
+    <canvas id="mijnCanvas" width="1500" height="1000" style="border:1px solid #000000;">
+
+    <script>
+        
+
+        var canvasObject = document.getElementById("mijnCanvas");
+        var contextObject = canvasObject.getContext("2d");
+        
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+			
+           var myObj = JSON.parse(this.responseText);
+           draw(myObj);
+            }
+        };
+        xmlhttp.open("GET", "games.json", true);
+        xmlhttp.send();
+
+		var criticscore = 0;
+        
+      function draw(myObj){
+//		  if (criticscore < 70 )
+//		  {
+	    for (var i = 0; i < 100; i++){
+			myObj[i].id = i;
+		}
+		
+				    for (var i = 0; i < 100; i++){
+
+        contextObject.beginPath();
+	  	contextObject.fillStyle = "#FF0000";
+		contextObject.arc(50+ myObj[i].Critic_Score, 80 + (i * 10), 40, 0, Math.PI*2);
+//      	contextObject.rect(160 * i, 40, 60, myObj.game[i].strength);
+        contextObject.fill();
+        contextObject.stroke();
+		 }
+
+   
+//         // De kubus begint 80 op de x as, 80 op de y as (het bovenste linker puntje), en hij is 300 breed en hoog.
+//        contextObject.beginPath();
+//        contextObject.arc(canvasObject.width / 4 * 0, canvasObject.height / 0, myObj.objecten[0].grootte, 0, 2 * Math.PI);
+//        contextObject.fillStyle = "#FF0000";
+//        contextObject.fill();
+//        contextObject.stroke();
+////       		}
+////		  else if(criticscore >70 && <80)
+////			  {
+//        contextObject.fillStyle = "#00FF00";
+//        contextObject.beginPath();
+//        contextObject.arc(canvasObject.width / 4 * 2, canvasObject.height / 0, myObj.objecten[1].grootte, 0, 2 * Math.PI);
+//        contextObject.fill();
+//        contextObject.stroke();
+////			  }
+////		  else(criticscore < 80)
+////		  {
+//        contextObject.fillStyle = "#0000FF";
+//        contextObject.beginPath();
+//        contextObject.arc(canvasObject.width / 4 * 1, canvasObject.height / 1.5, myObj.objecten[2].grootte, 0, 2 * Math.PI);
+//        contextObject.fill();
+//        contextObject.stroke();
+//		        
+//		contextObject.fillStyle = "#0000FF";
+//        contextObject.beginPath();
+//        contextObject.arc(canvasObject.width / 4 * 0, canvasObject.height / 2, myObj.objecten[3].grootte, 0, 2 * Math.PI);
+//        contextObject.fill();
+//        contextObject.stroke();
+//		          
+//		contextObject.fillStyle = "#0000FF";
+//        contextObject.beginPath();
+//        contextObject.arc(canvasObject.width / 4 * 2, canvasObject.height / 2, myObj.objecten[4].grootte, 0, 2 * Math.PI);
+//        contextObject.fill();
+//        contextObject.stroke();
+//
+////		  }
+
+      }
+        
+    </script> 
+	</canvas>
+</body>
+</html>

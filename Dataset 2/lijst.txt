@@ -1,0 +1,25 @@
+{
+    "objecten":[
+      {
+         "naam":"Action",
+         "grootte": 66
+      },
+      {
+         "naam":"Sports",
+         "grootte": 83
+      },
+      {
+         "naam":"Adventure",
+         "grootte": 36
+      },
+	{
+         "naam":"Shooter",
+         "grootte": 50
+	},
+	{
+         "naam":"Fighting",
+         "grootte": 61
+ 	}
+
+    	]
+}
